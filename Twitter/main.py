@@ -16,6 +16,7 @@ def home():
     post = Post(content=form.content.data,author=current_user)
     db.session.add(post)
     db.session.commit()
+    return redirect("/home")
   return render_template("home.html",form=form,posts=posts)
 
 @app.route("/register",methods=['GET','POST'])
